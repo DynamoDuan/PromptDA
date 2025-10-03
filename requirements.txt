@@ -11,7 +11,7 @@ Pillow>=10.1.0
 imageio-ffmpeg
 einops
 tqdm
-ipdb
+# ipdb
 # Diffusion
 transformers
 # ray

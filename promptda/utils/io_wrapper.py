@@ -30,14 +30,14 @@ def ensure_multiple_of(x, multiple_of=14):
     return int(x // multiple_of * multiple_of)
 
 
-def load_image(image_path, to_tensor=True, max_size=1008, multiple_of=14):
+def load_image(image_path, to_tensor=True, max_size=959, multiple_of=14):
     '''
     Load image from path and convert to tensor
     max_size // 14 = 0
     '''
     image = np.asarray(imageio.imread(image_path)).astype(np.float32)
     image = image / 255.
-
+    
     max_size = max_size // multiple_of * multiple_of
     if max(image.shape) > max_size:
         h, w = image.shape[:2]
@@ -65,6 +65,10 @@ def load_depth(depth_path, to_tensor=True):
         return to_tensor_func(depth)
     return depth
 
+def load_depth_from_array(depth_array, to_tensor=True):
+    if to_tensor:
+        return to_tensor_func(depth_array)
+    return depth_array
 
 @async_call
 def save_depth(depth,
@@ -75,6 +79,7 @@ def save_depth(depth,
     '''
     Save depth to path
     '''
+    #print(depth.shape)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     depth = to_numpy_func(depth)
     uint16_depth = (depth * 1000.).astype(np.uint16)

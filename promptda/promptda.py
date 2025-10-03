@@ -102,6 +102,7 @@ class PromptDA(nn.Module):
     def predict(self,
                 image: torch.Tensor,
                 prompt_depth: torch.Tensor):
+        #import ipdb; ipdb.set_trace()
         return self.forward(image, prompt_depth)
 
     def normalize(self,
