@@ -16,6 +16,9 @@
 
 ![teaser](assets/teaser.gif)
 
+## 📰 News
+- Releasing [ScanNet++ ZipNeRF Reconstruction Depth Results](https://huggingface.co/datasets/haotongl/scannetpp_zipnerf/tree/main)
+
 
 ## 🛠️ Installation
 
